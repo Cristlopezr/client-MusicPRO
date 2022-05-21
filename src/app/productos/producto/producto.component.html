@@ -1,47 +1,49 @@
 <div class="row">
-    <div class="col-sm-2">
-        <div class="producto p-5">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Producto</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Nombre: {{prodSucursal.producto.nombre}}</h6>
-                    <p class="card-text">Descripción: {{prodSucursal.producto.descripcion}}</p>
-                    <p class="card-text">Marca: {{prodSucursal.producto.marca}}</p>
-                    <p class="card-text">Precio: {{prodSucursal.producto.precio | number}}</p>
-                </div>
-            </div>
+  <div class="col-sm-2">
+    <div class="producto p-5">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Producto</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Nombre: {{ prodSucursal.producto.nombre }}
+          </h6>
+          <p class="card-text">
+            Descripción: {{ prodSucursal.producto.descripcion }}
+          </p>
+          <p class="card-text">Marca: {{ prodSucursal.producto.marca }}</p>
+          <p class="card-text">
+            Precio: {{ prodSucursal.producto.precio | number }}
+          </p>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="col-sm-4">
-        <div class="producto p-5">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Disponibilidad</h5>
-                    <div *ngFor="let item of prodSucursal.sucursales" class="sucursal">
-                        <p class="card-text">Sucursal: {{item.nombre}} Stock: {{item.stock}}</p>
-                        <hr>
-                    </div>
-
-                </div>
-            </div>
+  <div class="col-sm-4">
+    <div class="producto p-5">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Disponibilidad</h5>
+          <div *ngFor="let item of prodSucursal.sucursales" class="sucursal">
+            <p class="card-text">
+              Sucursal: {{ item.nombre }} Stock: {{ item.stock }}
+            </p>
+            <hr />
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="col-sm-6"></div>
+  <div class="col-sm-6"></div>
 
-    <div class="col-sm-4 p-5">
-        <input class="form-control" type="number">
-        <select id="asd" class="form-select">
-            <option *ngFor="let item of prodSucursal.sucursales">
-                {{item.nombre}}
-            </option>
-        </select>
-        <button class="btn btn-success"> Comprar</button>
-    </div>
-
-
-
-
-
+  <div class="col-sm-4 p-5">
+    <input class="form-control" type="number" id="cantidad" />
+    <select id="sucursal" class="form-select">
+      <option *ngFor="let item of prodSucursal.sucursales">
+        {{ item.nombre }}
+      </option>
+    </select>
+    <button (click)="comprarProducto()" class="btn btn-success">Comprar</button>
+  </div>
 </div>
