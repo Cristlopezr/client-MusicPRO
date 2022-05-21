@@ -9,15 +9,24 @@ export interface Producto {
     __v: number
 }
 
-// export interface Producto {
-//   _id: Id;
-//   nombre: string;
-//   precio: number;
-//   marca: string;
-//   descripcion: string;
-//   __v: number;
+
+export interface ProdSucursal {
+    producto: Producto,
+    sucursales: [{
+        sucursal: string;
+        nombre: string;
+        stock: number;
+    }]
+}
+
+
+// interface RootObject {
+//   producto: Producto;
+//   sucursales: Sucursale[];
 // }
 
-// export interface Id {
-//   '$oid': string;
+// interface Sucursale {
+//   sucursal: string;
+//   nombre: string;
+//   stock: number;
 // }

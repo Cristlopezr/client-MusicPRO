@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Producto } from '../productos/productos-interfaces';
+import { Producto, ProdSucursal } from '../productos/productos-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,10 @@ export class ProductosService {
   getProductos():Observable<Producto[]>{
     return this.http.get<Producto[]>('http://localhost:5000/productos')
     
+  }
+
+  getProducto( id : number):Observable<ProdSucursal>{
+    return this.http.get<ProdSucursal>('http://localhost:5000/productos/'+id)
   }
 
   
