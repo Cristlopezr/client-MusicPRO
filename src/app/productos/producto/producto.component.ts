@@ -10,6 +10,9 @@ import { ProdSucursal } from '../productos-interfaces';
   styleUrls: ['./producto.component.css'],
 })
 export class ProductoComponent implements OnInit {
+  estado = false;
+  alerta = '';
+  alertaError = '';
   prodSucursal: ProdSucursal = {
     producto: {
       _id: {
@@ -44,11 +47,13 @@ export class ProductoComponent implements OnInit {
       .pipe(switchMap((params) => this.prodService.getProducto(params['id'])))
       .subscribe((prodSucursal) => {
         this.prodSucursal = prodSucursal;
-        console.log(this.prodSucursal);
+        this.estado = true;
       });
   }
 
   comprarProducto() {
+    this.alerta = '';
+    this.alertaError = '';
     let cantidad_compra = '';
     let nombre_sucursal: string = (<HTMLInputElement>(
       document.getElementById('sucursal')
@@ -72,9 +77,18 @@ export class ProductoComponent implements OnInit {
 
     this.prodService
       .putProducto(this.prodSucursal.producto._id.$oid, producto)
-      .subscribe((data) => {
-        console.log(data);
-        this.getProducto();
-      });
+      .subscribe(
+        (data: any) => {
+          this.estado = false;
+          this.getProducto();
+          const { mensaje } = data;
+          this.alerta = mensaje;
+        },
+        (error) => {
+          console.log(error);
+          const { error: mensaje } = error;
+          this.alertaError = mensaje.mensaje;
+        }
+      );
   }
 }
