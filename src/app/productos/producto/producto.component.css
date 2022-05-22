@@ -1,3 +1,42 @@
-.comprar{
-    display: flex;
+.container {
+  max-width: 900px;
+}
+.flex {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 200px;
+  gap: 50px;
+}
+
+.disponibilidad {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sucursales {
+  grid-row: span 2;
+  min-width: 100%;
+}
+
+.comprar {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 20px;
+  max-width: 500px;
+  max-height: 200px;
+}
+.producto {
+  min-width: 500px;
+}
+
+.cantidad {
+  gap: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  min-width: 300px;
+  align-self: center;
 }
