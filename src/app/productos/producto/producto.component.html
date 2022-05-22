@@ -32,19 +32,23 @@
     <div class="card text-center producto" style="width: 18rem">
       <div class="text-center">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Drum_set.svg/1200px-Drum_set.svg.png"
+          src="{{ prodSucursal.producto.imagen }}"
           style="height: 200px; width: 200px"
-          alt=""
+          alt="{{ prodSucursal.producto.nombre }}"
         />
       </div>
       <div class="card-body">
         <h5 class="card-title">Producto</h5>
-        <h6 class="card-subtitle mb-2 text-muted">
-          Nombre: {{ prodSucursal.producto.nombre }}
+        <h6 class="card-subtitle mb-3">
+          <span class="fw-bold">Nombre: </span>
+          {{ prodSucursal.producto.nombre }}
         </h6>
-        <p class="card-text">Marca: {{ prodSucursal.producto.marca }}</p>
         <p class="card-text">
-          Descripción: {{ prodSucursal.producto.descripcion }}
+          <span class="fw-bold">Marca: </span>{{ prodSucursal.producto.marca }}
+        </p>
+        <p class="card-text">
+          <span class="fw-bold">Descripción: </span
+          >{{ prodSucursal.producto.descripcion }}
         </p>
 
         <p class="card-text fw-bold">
