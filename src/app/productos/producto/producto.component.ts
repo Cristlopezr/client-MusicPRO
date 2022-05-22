@@ -22,6 +22,7 @@ export class ProductoComponent implements OnInit {
       precio: 0,
       marca: '',
       descripcion: '',
+      imagen: '',
       __v: 0,
     },
     sucursales: [
